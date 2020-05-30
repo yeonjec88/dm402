@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+</head>
+<body>
+
+<div id="content">
+    {% for post in object_list %}
+        <p>{{ post.title }}</p>
+        <p>{{ post.description }}</p>
+        <p>{{ post.create_date }}</p>
+        <p>{{ post.modify_date }}</p>
+        <a href="{% url 'blog_detail' post.id %}">
+            <img src="{{ post.image.url }}">
+        </a>
+    {% endfor %}
+</div>
+
+</body>
+</html>
